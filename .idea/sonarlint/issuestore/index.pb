@@ -35,3 +35,5 @@ w
 G.idea/sonarlint/issuestore/7/5/75f0be519cd9363007a2b8b7957c9687eed8d85c,d\2\d2c3e4bba26985f181578ae171163048dcdd0b48
 –
 fbackend-api-service/src/test/java/com/smatech/backendapiservice/BackendApiServiceApplicationTests.java,e\8\e8c3f87e2e8dc241ea4dc286e68ee45ad724c15a
+J
+smatRentalPro-platform.iml,b\2\b2f7ad4af99519d538f50aef8ee51eee9d0e2817
