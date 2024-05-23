@@ -7,35 +7,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "users")
+@Table(name = "role")
 @Data
 @NoArgsConstructor
-public class UserEntity {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userId;
+    private long roleId;
 
     private String name;
-
-    private String surname;
-
-    private String username;
-
-    private String password;
-
-    private String nationalId;
-
-    private String gender;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dob;
-
-    private String address;
-
-    private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
     private Status status;
@@ -46,5 +29,4 @@ public class UserEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     @UpdateTimestamp
     private OffsetDateTime lastUpdated;
-
 }
