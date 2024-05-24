@@ -1,6 +1,7 @@
 package com.smatech.backendapiservice.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.smatech.backendapiservice.common.enums.PropertyStatus;
 import com.smatech.backendapiservice.common.enums.PropertyType;
 import com.smatech.backendapiservice.common.enums.Status;
 import jakarta.persistence.*;
@@ -32,6 +33,8 @@ public class Property {
     private Application application;
 
     private boolean hasApplication;
+
+    private PropertyStatus propertyStatus;
 
     @Enumerated(EnumType.STRING)
     private Status status;

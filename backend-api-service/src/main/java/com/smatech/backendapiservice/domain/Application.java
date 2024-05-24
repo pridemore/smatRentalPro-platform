@@ -1,6 +1,7 @@
 package com.smatech.backendapiservice.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.smatech.backendapiservice.common.enums.ApplicationStatus;
 import com.smatech.backendapiservice.common.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -34,6 +35,9 @@ public class Application {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "propertyId", referencedColumnName = "propertyId")
     private Property property;
+
+    @Enumerated(EnumType.STRING)
+    private ApplicationStatus applicationStatus;
 
     @Enumerated(EnumType.STRING)
     private Status status;
