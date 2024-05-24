@@ -2,13 +2,19 @@ package com.smatech.backendapiservice.controller;
 
 import com.smatech.backendapiservice.domain.Role;
 import com.smatech.backendapiservice.domain.UserEntity;
+import com.smatech.backendapiservice.domain.dto.LoginDto;
+import com.smatech.backendapiservice.domain.dto.LoginResponseDto;
 import com.smatech.backendapiservice.domain.dto.UserDto;
 import com.smatech.backendapiservice.persistance.RoleRepository;
 import com.smatech.backendapiservice.persistance.UserRepository;
+import com.smatech.backendapiservice.security.JWTTokenGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,16 +30,19 @@ public class AuthController {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
+    private JWTTokenGenerator jwtGenerator;
 
     @Autowired
     public AuthController(AuthenticationManager authenticationManager,
                           UserRepository userRepository,
                           RoleRepository roleRepository,
-                          PasswordEncoder passwordEncoder) {
+                          PasswordEncoder passwordEncoder,
+                          JWTTokenGenerator jwtGenerator) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtGenerator=jwtGenerator;
     }
 
     @PostMapping("/register")
@@ -52,6 +61,17 @@ public class AuthController {
         userRepository.save(user);
 
         return new ResponseEntity<>("User registered success!", HttpStatus.OK);
+    }
+
+    @PostMapping("login")
+    public ResponseEntity<LoginResponseDto> login(@RequestBody LoginDto loginDto){
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        loginDto.getUsername(),
+                        loginDto.getPassword()));
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String token = jwtGenerator.generateToken(authentication);
+        return new ResponseEntity<>(new LoginResponseDto(token), HttpStatus.OK);
     }
 
 }

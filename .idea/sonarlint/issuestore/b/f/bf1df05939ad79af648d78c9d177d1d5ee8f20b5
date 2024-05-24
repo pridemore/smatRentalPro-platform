@@ -1,0 +1,15 @@
+
+o
+java:S1602C",Remove useless curly braces around statement(€²ş€8°ŞÕÒú1J$c167805f-fcf6-4cf5-87d6-17c56cf6db7e
+m	java:S106D"+Replace this use of System.out by a logger.(±áú©8²ŞÕÒú1J$be0e243b-8209-40de-8bb4-3bb1b8b6b447
+o
+java:S1602Q",Remove useless curly braces around statement(™ñ½Ş8³ŞÕÒú1J$c52f956b-8d84-427c-8b8c-944d48957648
+p
+java:S2201X"-The return value of "orElseGet" must be used.(ˆÂŠ­8´ŞÕÒú1J$2c01431c-10cd-4bb6-add8-c14bb19c0bd3
+v
+java:S1172_"3Remove this unused method parameter "emailService".(«·ôÂ8¶ÀßÒú1J$4041263a-1b1e-4a54-a1b5-364954667928
+~
+java:S6437u"6Revoke and change this password, as it is compromised.(ÈÑê×ıÿÿÿÿ8¹ŞÕÒú1J$94303cf3-58d8-46fd-b8a5-9b80eecdbd74
+	java:S125€"<This block of commented-out lines of code should be removed.(ğş¤‰8ÂÀßÒú1J$552762cf-fd24-4a2e-a359-b844388365bd
+„
+java:S1144‡"@Remove this unused private "generateNewUserEmailMessage" method.(¢­Ç8ÉÀßÒú1J$9186850c-ac23-4658-8a5e-2f17c62f9420
