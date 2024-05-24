@@ -34,6 +34,8 @@ public class UserEntity {
 
     private String password;
 
+    private String activationToken;
+
     private String nationalId;
 
     @Enumerated(EnumType.STRING)

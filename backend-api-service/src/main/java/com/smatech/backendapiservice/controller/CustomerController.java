@@ -18,7 +18,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @PostMapping
+    @PostMapping("/sign-up")
     public CommonResponse create(@RequestBody CustomerDto customerDto){
         return customerService.createCustomer(customerDto);
     }

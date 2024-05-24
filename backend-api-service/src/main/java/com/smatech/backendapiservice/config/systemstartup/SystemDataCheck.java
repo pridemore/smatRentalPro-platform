@@ -1,5 +1,6 @@
 package com.smatech.backendapiservice.config.systemstartup;
 
+import com.smatech.backendapiservice.common.SystemConstants;
 import com.smatech.backendapiservice.common.enums.Gender;
 import com.smatech.backendapiservice.common.enums.Status;
 import com.smatech.backendapiservice.domain.Role;
@@ -20,6 +21,10 @@ import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+
+import static com.smatech.backendapiservice.common.SystemConstants.BASE_URL;
+import static com.smatech.backendapiservice.common.Utility.generateNewUserEmailMessage;
 
 @Slf4j
 @Configuration
@@ -103,6 +108,7 @@ public class SystemDataCheck {
                 .nationalId("07-348746B07")
                 .phoneNumber("+263779046518")
                 .email(ADMIN_EMAIL)
+                .activationToken(UUID.randomUUID().toString())
                 .dob(LocalDate.now())
                 .dateCreated(OffsetDateTime.now())
                 .lastUpdated(OffsetDateTime.now())
@@ -117,12 +123,13 @@ public class SystemDataCheck {
         log.info("Admin ID Generated:: {}", savedAdminProfile.getUserId());
 
         log.info("Temporary Password: {}", TEMPORARY_PASSWORD);
+        String link= BASE_URL+"/api/customers/activate?token=" + adminProfile.getActivationToken();
 
         //Send email with password
         try {
-//            emailService.sendEmail(adminProfile.getEmail(),
-//                    SystemConstants.NEW_USER_EMAIL_SUBJECT,
-//                    generateNewUserEmailMessage(adminProfile.getUsername(), TEMPORARY_PASSWORD));
+            emailService.sendEmail(adminProfile.getEmail(),
+                    SystemConstants.NEW_USER_EMAIL_SUBJECT,
+                    generateNewUserEmailMessage(adminProfile.getUsername(), TEMPORARY_PASSWORD,link));
         } catch (Exception e) {
             log.info("An error occurred sending email: {}", e.getMessage());
         }

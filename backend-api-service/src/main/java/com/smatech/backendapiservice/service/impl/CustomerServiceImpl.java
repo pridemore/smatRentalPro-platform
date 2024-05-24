@@ -17,15 +17,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
-import static com.smatech.backendapiservice.common.SystemConstants.FAILURE_MESSAGE;
-import static com.smatech.backendapiservice.common.SystemConstants.SUCCESS_MESSAGE;
+import static com.smatech.backendapiservice.common.SystemConstants.*;
 
 @Slf4j
 @Service
@@ -103,6 +104,7 @@ public class CustomerServiceImpl implements CustomerService {
                 .phoneNumber(savedCustomer.getPhoneNumber())
                 .email(savedCustomer.getEmail())
                 .password(passwordEncoder.encode(password))
+                .activationToken(UUID.randomUUID().toString())
                 .dob(LocalDate.now())
                 .dateCreated(OffsetDateTime.now())
                 .lastUpdated(OffsetDateTime.now())
@@ -115,8 +117,10 @@ public class CustomerServiceImpl implements CustomerService {
             //Send email with credentials
             log.info("Sending email with credentials");
             try {
+
+                String link= BASE_URL+"/api/customers/activate?token=" + userEntity.getActivationToken();
                 emailService.sendEmail(userEntity.getEmail(), SystemConstants.NEW_USER_EMAIL_SUBJECT,
-                        Utility.generateNewUserEmailMessage(userEntity.getEmail(), password));
+                        Utility.generateNewUserEmailMessage(userEntity.getEmail(), password,link));
             } catch (Exception ex) {
                 log.info("Oops! Couldnt send email. An error occurred");
                 log.info(ex.getMessage());

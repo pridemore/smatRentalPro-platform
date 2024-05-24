@@ -43,7 +43,7 @@ public class EmailServiceImpl implements EmailService {
                     helper.setFrom("info@smatech.co.zw");
                     helper.setTo(to);
                     helper.setSubject(subject);
-                    helper.setText(body);
+                    helper.setText(body,true);
                     mailSender.send(message);
                     log.info("Email Sent!");
                 } catch (MessagingException e) {
