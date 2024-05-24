@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 @Entity
@@ -29,4 +30,11 @@ public class Role {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     @UpdateTimestamp
     private OffsetDateTime lastUpdated;
+
+    public Role(String name) {
+        this.name = name;
+        this.status = Status.ACTIVE;
+        this.dateCreated = OffsetDateTime.now();
+        this.lastUpdated = OffsetDateTime.now();
+    }
 }
