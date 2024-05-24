@@ -12,22 +12,20 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "users")
+@Table(name = "customers")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserEntity {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userId;
+    private long customerId;
 
     private String name;
-
     private String surname;
 
     private String username;
@@ -47,10 +45,16 @@ public class UserEntity {
 
     private String phoneNumber;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userId"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "roleId"))
-    private List<Role> roles = new ArrayList<>();
+
+    @OneToOne(targetEntity = UserEntity.class, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    UserEntity userAccount;
+
+    @ManyToOne(targetEntity = Role.class, fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name="customer_role_id", referencedColumnName = "roleId")
+    Role role;
+
+    @OneToMany(mappedBy="customer")
+    private Set<Application> applicationSet;
 
     @Enumerated(EnumType.STRING)
     private Status status;

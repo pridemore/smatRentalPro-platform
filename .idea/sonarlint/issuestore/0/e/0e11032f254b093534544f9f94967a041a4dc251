@@ -1,21 +1,11 @@
 
 ‹
-java:S5738&"HRemove this call to a deprecated method, it has been marked for removal.(³´©™8ÛºõÌú1J$9f16b262-be65-4e37-8e54-7a0aa5f3fc82
+java:S5738 "HRemove this call to a deprecated method, it has been marked for removal.(³´©™8Ôô·Ûú1J$d8ad8dc9-e16f-42d0-ad0e-e4faaddae1b0
 ‹
-java:S5738&"HRemove this call to a deprecated method, it has been marked for removal.(³´©™8ÛºõÌú1J$bf44aec1-0380-4bef-9a6f-293bc9abb408
+java:S5738 "HRemove this call to a deprecated method, it has been marked for removal.(³´©™8Ôô·Ûú1J$5c5bcab0-8e03-4b77-840c-169be242ff1d
 
-java:S5738'"HRemove this call to a deprecated method, it has been marked for removal.(øş­Ÿûÿÿÿÿ8ÜºõÌú1J$56965c33-0370-49e3-a1d1-b83c723a4a94
+java:S5738!"HRemove this call to a deprecated method, it has been marked for removal.(øş­Ÿûÿÿÿÿ8Õô·Ûú1J$10c782f6-9fb0-4c98-8f32-38f8fcd962a2
 }
-java:S1611*"5Remove the parentheses around the "session" parameter(¿æ¶¦úÿÿÿÿ8İºõÌú1J$fca171fb-6463-459e-b04f-f1427ed8046b
-ˆ
-java:S1128"@Remove this unused import 'org.springframework.http.HttpMethod'.(Ê¨Ä¡øÿÿÿÿ8ëİõÏú1J$cd0db274-61e0-422b-9c3f-04e673bc315b
-’
-java:S1128"ORemove this unused import 'org.springframework.security.core.userdetails.User'.(–Ä€8ìİõÏú1J$2b1cc977-3644-41fb-a555-42f2a2e1fc07
-™
-java:S1128"VRemove this unused import 'org.springframework.security.core.userdetails.UserDetails'.(ÊÁ¥8íİõÏú1J$23b1406b-2a1b-47e8-ae24-f4366d53ecc1
-©
-java:S1128"aRemove this unused import 'org.springframework.security.provisioning.InMemoryUserDetailsManager'.(îŒúùÿÿÿÿ8îİõÏú1J$063bc96d-a12f-4237-a757-bafdc166eaba
-›
-java:S1128"XRemove this unused import 'org.springframework.security.config.Customizer.withDefaults'.(ÃÒş†8ğİõÏú1J$51dcd4bd-9442-4ae0-9ead-4c3cb3febe58
+java:S1611$"5Remove the parentheses around the "session" parameter(¿æ¶¦úÿÿÿÿ8Õô·Ûú1J$370329b6-7f6f-4ed5-8ea1-814b9aebf51b
 y
-java:S1068"6Remove this unused "userDetailsService" private field.(çÆÇ³8ßºõÌú1J$9463391a-0891-45b5-aa6d-6bdc10efde5d
+java:S1068"6Remove this unused "userDetailsService" private field.(çÆÇ³8Øô·Ûú1J$7b2ebb57-eb52-4d19-9177-c07027976dc2

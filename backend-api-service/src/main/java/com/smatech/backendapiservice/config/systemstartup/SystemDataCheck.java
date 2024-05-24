@@ -46,7 +46,7 @@ public class SystemDataCheck {
 
             checkUserRoleConfiguration(roleRepository);
 
-            checkAdminConfiguration(userRepository, roleRepository,userService,passwordEncoder,emailService);
+            checkAdminConfiguration(userRepository, roleRepository, userService, passwordEncoder, emailService);
 
             log.info("**** SYSTEM READY ****");
         };
@@ -79,11 +79,11 @@ public class SystemDataCheck {
             log.info("Found user {}", user.getPhoneNumber());
         });
 
-      userOptional.map(user -> {
+        userOptional.map(user -> {
             log.info("Super admin profile already initialized, skipping...");
             return user;
         }).orElseGet(() -> createAdminUser(userRepository, roleRepository,
-                 emailService,passwordEncoder));
+                emailService, passwordEncoder));
 
     }
 
@@ -92,22 +92,22 @@ public class SystemDataCheck {
                                        EmailService emailService,
                                        PasswordEncoder passwordEncoder
     ) {
-        UserEntity adminProfile = new UserEntity();
-
 
         Optional<Role> optionalRole = roleRepository.findByName("ADMIN");
-        adminProfile.setName("Super");
-        adminProfile.setSurname("Admin");
-        adminProfile.setUsername(ADMIN_USERNAME);
-        adminProfile.setGender(Gender.MALE);
-        adminProfile.setAddress("123 Smatech Company, Harare");
-        adminProfile.setNationalId("07-348746B07");
-        adminProfile.setPhoneNumber("+263779046518");
-        adminProfile.setEmail(ADMIN_EMAIL);
-        adminProfile.setDob(LocalDate.now());
-        adminProfile.setDateCreated(OffsetDateTime.now());
-        adminProfile.setLastUpdated(OffsetDateTime.now());
-        adminProfile.setStatus(Status.ACTIVE);
+        UserEntity adminProfile = UserEntity.builder()
+                .name("Super")
+                .surname("Admin")
+                .username(ADMIN_USERNAME)
+                .gender(Gender.MALE)
+                .address("123 Smatech Company, Harare")
+                .nationalId("07-348746B07")
+                .phoneNumber("+263779046518")
+                .email(ADMIN_EMAIL)
+                .dob(LocalDate.now())
+                .dateCreated(OffsetDateTime.now())
+                .lastUpdated(OffsetDateTime.now())
+                .status(Status.ACTIVE)
+                .build();
 
         optionalRole.ifPresent(role -> adminProfile.setRoles(Arrays.asList(role)));
 
@@ -127,14 +127,7 @@ public class SystemDataCheck {
             log.info("An error occurred sending email: {}", e.getMessage());
         }
         return adminProfile;
-}
-
-    private String generateNewUserEmailMessage(String username, String temporaryPassword) {
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("Hi.\n\nWelcome to SmatechRentalPro. A profile has been generated for you.");
-        sb.append("\n\nUsername: " + username + "\n Password: "+ temporaryPassword);
-        sb.append("\nIf this was a mistake kindly ignore this message");
-        return sb.toString();
     }
+
+
 }
