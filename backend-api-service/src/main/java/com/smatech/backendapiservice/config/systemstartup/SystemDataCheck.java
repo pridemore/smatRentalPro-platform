@@ -1,6 +1,5 @@
 package com.smatech.backendapiservice.config.systemstartup;
 
-import com.smatech.backendapiservice.common.SystemConstants;
 import com.smatech.backendapiservice.common.enums.Gender;
 import com.smatech.backendapiservice.common.enums.Status;
 import com.smatech.backendapiservice.domain.Role;
@@ -17,9 +16,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
