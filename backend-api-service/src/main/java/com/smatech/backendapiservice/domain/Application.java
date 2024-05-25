@@ -1,9 +1,12 @@
 package com.smatech.backendapiservice.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.smatech.backendapiservice.common.enums.ApplicationStatus;
 import com.smatech.backendapiservice.common.enums.Status;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -14,7 +17,9 @@ import java.time.OffsetDateTime;
 @Entity
 @Table(name = "applications")
 @Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -49,6 +49,8 @@ public class UserEntity {
 
     private String phoneNumber;
 
+    private String profileImage;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userId"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "roleId"))

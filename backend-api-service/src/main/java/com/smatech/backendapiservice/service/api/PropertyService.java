@@ -8,4 +8,6 @@ public interface PropertyService {
     CommonResponse createProperty(PropertyDto applicationDto);
 
     CommonResponse findAllProperties(PropertyStatus status);
+
+    CommonResponse getAllCustomerAppliedProperties(long customerId);
 }

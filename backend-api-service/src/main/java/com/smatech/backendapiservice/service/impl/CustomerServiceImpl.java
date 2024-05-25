@@ -118,9 +118,9 @@ public class CustomerServiceImpl implements CustomerService {
             log.info("Sending email with credentials");
             try {
 
-                String link= BASE_URL+"/api/customers/activate?token=" + userEntity.getActivationToken();
-                emailService.sendEmail(userEntity.getEmail(), SystemConstants.NEW_USER_EMAIL_SUBJECT,
-                        Utility.generateNewUserEmailMessage(userEntity.getEmail(), password,link));
+//                String link= BASE_URL+"/api/customers/activate?token=" + userEntity.getActivationToken();
+//                emailService.sendEmail(userEntity.getEmail(), SystemConstants.NEW_USER_EMAIL_SUBJECT,
+//                        Utility.generateNewUserEmailMessage(userEntity.getEmail(), password,link));
             } catch (Exception ex) {
                 log.info("Oops! Couldnt send email. An error occurred");
                 log.info(ex.getMessage());

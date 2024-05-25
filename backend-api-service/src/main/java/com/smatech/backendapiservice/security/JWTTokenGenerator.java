@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
+import java.util.Calendar;
 import java.util.Date;
 
 @Component
@@ -16,8 +17,13 @@ public class JWTTokenGenerator {
     private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     public String generateToken(Authentication authentication) {
         String username = authentication.getName();
+
         Date currentDate = new Date();
-        Date expireDate = new Date(currentDate.getTime() + SecurityConstants.JWT_EXPIRATION);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(currentDate);
+        cal.add(Calendar.DAY_OF_MONTH, 1);  // Add 1 day
+        // Get the expiration date
+        Date expireDate = cal.getTime();
 
         String token = Jwts.builder()
                 .setSubject(username)

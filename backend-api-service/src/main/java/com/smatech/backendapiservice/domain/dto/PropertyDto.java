@@ -24,5 +24,9 @@ public class PropertyDto {
 
     private String description;
 
+    private double rentalAmount;
+
+    private String propertyImage;
+
 
 }

@@ -127,9 +127,9 @@ public class SystemDataCheck {
 
         //Send email with password
         try {
-            emailService.sendEmail(adminProfile.getEmail(),
-                    SystemConstants.NEW_USER_EMAIL_SUBJECT,
-                    generateNewUserEmailMessage(adminProfile.getUsername(), TEMPORARY_PASSWORD,link));
+//            emailService.sendEmail(adminProfile.getEmail(),
+//                    SystemConstants.NEW_USER_EMAIL_SUBJECT,
+//                    generateNewUserEmailMessage(adminProfile.getUsername(), TEMPORARY_PASSWORD,link));
         } catch (Exception e) {
             log.info("An error occurred sending email: {}", e.getMessage());
         }

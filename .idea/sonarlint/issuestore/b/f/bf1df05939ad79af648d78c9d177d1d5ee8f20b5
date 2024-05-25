@@ -1,10 +1,17 @@
 
 o
-java:S1602E",Remove useless curly braces around statement(€²ş€8ó¡“àú1J$0f41a884-957b-4480-a87f-e45d94dc4008
-m	java:S106F"+Replace this use of System.out by a logger.(±áú©8ó¡“àú1J$42d32e4e-9cd2-498d-8e76-0e9aaae713a7
+java:S1602E",Remove useless curly braces around statement(€²ş€8ó¡“àú1J$764635d4-2e68-4124-ba7f-884009f1a9e7
+m	java:S106F"+Replace this use of System.out by a logger.(±áú©8ó¡“àú1J$f2a10c99-17c8-4f8d-91df-87b87adb9f80
 o
-java:S1602S",Remove useless curly braces around statement(™ñ½Ş8ô¡“àú1J$65a0052b-08f3-4185-a446-30358c9c9c90
+java:S1602S",Remove useless curly braces around statement(™ñ½Ş8ô¡“àú1J$f6eb79a2-50b8-441b-9822-2784a5d484c2
 p
-java:S2201Z"-The return value of "orElseGet" must be used.(ˆÂŠ­8ô¡“àú1J$bc03d45d-d441-458a-a60c-20115aa1a5d5
+java:S2201Z"-The return value of "orElseGet" must be used.(ˆÂŠ­8ô¡“àú1J$2f4d4f0a-8431-4dec-8721-e53cc1559c45
+€
+java:S1854~"8Remove this useless assignment to local variable "link".(—£õÁøÿÿÿÿ8ô†Éäú1J$c4728c44-54dc-4e66-be8a-0f9a171a5215
+v
+java:S1172a"3Remove this unused method parameter "emailService".(«·ôÂ8õ†Éäú1J$fb155e4c-a98e-45aa-af41-8672a18cfebf
 ~
-java:S6437x"6Revoke and change this password, as it is compromised.(ÈÑê×ıÿÿÿÿ8ö¡“àú1J$0c379716-c4be-4983-afe9-04c8cdae5d4b
+java:S6437x"6Revoke and change this password, as it is compromised.(ÈÑê×ıÿÿÿÿ8ö¡“àú1J$775e9adf-0100-47e6-b19a-174c00c0bf36
+q
+java:S1481~")Remove this unused "link" local variable.(—£õÁøÿÿÿÿ8ú†Éäú1J$c4e63f06-96a7-4b79-a9c0-0748ef4ff182
+	java:S125„"<This block of commented-out lines of code should be removed.(ìö—†8û†Éäú1J$ad2aea83-895b-4706-a21c-56f6364cc484
