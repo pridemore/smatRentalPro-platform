@@ -3,10 +3,11 @@ package com.smatech.backendapiservice.config.systemstartup;
 import com.smatech.backendapiservice.common.SystemConstants;
 import com.smatech.backendapiservice.common.enums.Gender;
 import com.smatech.backendapiservice.common.enums.Status;
+import com.smatech.backendapiservice.common.response.CommonResponse;
 import com.smatech.backendapiservice.domain.Role;
 import com.smatech.backendapiservice.domain.UserEntity;
+import com.smatech.backendapiservice.domain.dto.UserDto;
 import com.smatech.backendapiservice.persistance.RoleRepository;
-import com.smatech.backendapiservice.persistance.UserRepository;
 import com.smatech.backendapiservice.service.api.EmailService;
 import com.smatech.backendapiservice.service.api.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,11 +18,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import static com.smatech.backendapiservice.common.SystemConstants.BASE_URL;
 import static com.smatech.backendapiservice.common.Utility.generateNewUserEmailMessage;
@@ -38,7 +36,6 @@ public class SystemDataCheck {
     public CommandLineRunner checkDefaultConfigs(
             Environment environment,
             RoleRepository roleRepository,
-            UserRepository userRepository,
             UserService userService,
             PasswordEncoder passwordEncoder,
             EmailService emailService
@@ -51,7 +48,7 @@ public class SystemDataCheck {
 
             checkUserRoleConfiguration(roleRepository);
 
-            checkAdminConfiguration(userRepository, roleRepository, userService, passwordEncoder, emailService);
+            checkAdminConfiguration(userService, roleRepository,passwordEncoder, emailService);
 
             log.info("**** SYSTEM READY ****");
         };
@@ -72,9 +69,8 @@ public class SystemDataCheck {
         }
     }
 
-    private void checkAdminConfiguration(UserRepository userRepository,
+    private void checkAdminConfiguration(UserService userService,
                                          RoleRepository roleRepository,
-                                         UserService userService,
                                          PasswordEncoder passwordEncoder,
                                          EmailService emailService) {
 
@@ -87,53 +83,32 @@ public class SystemDataCheck {
         userOptional.map(user -> {
             log.info("Super admin profile already initialized, skipping...");
             return user;
-        }).orElseGet(() -> createAdminUser(userRepository, roleRepository,
-                emailService, passwordEncoder));
+        }).orElseGet(() -> createAdminUser(userService,emailService));
 
     }
 
-    private UserEntity createAdminUser(UserRepository userRepository,
-                                       RoleRepository roleRepository,
-                                       EmailService emailService,
-                                       PasswordEncoder passwordEncoder
+    private UserEntity createAdminUser(UserService userService,
+                                       EmailService emailService
     ) {
 
-        Optional<Role> optionalRole = roleRepository.findByName("ADMIN");
-        UserEntity adminProfile = UserEntity.builder()
+        UserDto adminProfile = UserDto.builder()
                 .name("Super")
                 .surname("Admin")
+                .password(TEMPORARY_PASSWORD)
                 .username(ADMIN_USERNAME)
-                .gender(Gender.MALE)
+                .gender(Gender.MALE.name())
                 .address("123 Smatech Company, Harare")
                 .nationalId("07-348746B07")
                 .phoneNumber("+263779046518")
                 .email(ADMIN_EMAIL)
-                .activationToken(UUID.randomUUID().toString())
+                .role("ADMIN")
                 .dob(LocalDate.now())
-                .dateCreated(OffsetDateTime.now())
-                .lastUpdated(OffsetDateTime.now())
-                .status(Status.ACTIVE)
                 .build();
 
-        optionalRole.ifPresent(role -> adminProfile.setRoles(Arrays.asList(role)));
+        CommonResponse response = userService.registerUser(adminProfile);
+        UserEntity savedAdminProfile=(UserEntity)response.getResult();
 
-        adminProfile.setPassword(passwordEncoder.encode(TEMPORARY_PASSWORD));
-
-        UserEntity savedAdminProfile = userRepository.save(adminProfile);
-        log.info("Admin ID Generated:: {}", savedAdminProfile.getUserId());
-
-        log.info("Temporary Password: {}", TEMPORARY_PASSWORD);
-        String link= BASE_URL+"/api/customers/activate?token=" + adminProfile.getActivationToken();
-
-        //Send email with password
-        try {
-//            emailService.sendEmail(adminProfile.getEmail(),
-//                    SystemConstants.NEW_USER_EMAIL_SUBJECT,
-//                    generateNewUserEmailMessage(adminProfile.getUsername(), TEMPORARY_PASSWORD,link));
-        } catch (Exception e) {
-            log.info("An error occurred sending email: {}", e.getMessage());
-        }
-        return adminProfile;
+        return savedAdminProfile;
     }
 
 

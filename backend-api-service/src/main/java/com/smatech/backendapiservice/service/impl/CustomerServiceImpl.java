@@ -1,5 +1,7 @@
 package com.smatech.backendapiservice.service.impl;
 
+import com.smatech.backendapiservice.common.SystemConstants;
+import com.smatech.backendapiservice.common.Utility;
 import com.smatech.backendapiservice.common.enums.Status;
 import com.smatech.backendapiservice.common.response.CommonResponse;
 import com.smatech.backendapiservice.domain.Customer;
@@ -9,13 +11,11 @@ import com.smatech.backendapiservice.domain.dto.CustomerDto;
 import com.smatech.backendapiservice.domain.dto.UserDto;
 import com.smatech.backendapiservice.persistance.CustomerRepository;
 import com.smatech.backendapiservice.persistance.RoleRepository;
-import com.smatech.backendapiservice.persistance.UserRepository;
 import com.smatech.backendapiservice.service.api.CustomerService;
 import com.smatech.backendapiservice.service.api.EmailService;
 import com.smatech.backendapiservice.service.api.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -35,15 +35,18 @@ public class CustomerServiceImpl implements CustomerService {
 
     private RoleRepository roleRepository;
 
+    private EmailService emailService;
+
     private final Executor executor;
 
     public CustomerServiceImpl(CustomerRepository customerRepository,
                                UserService userService,
                                RoleRepository roleRepository,
-                               Executor executor) {
+                               EmailService emailService, Executor executor) {
         this.customerRepository = customerRepository;
         this.userService = userService;
         this.roleRepository = roleRepository;
+        this.emailService = emailService;
         this.executor = executor;
     }
 
@@ -98,27 +101,10 @@ public class CustomerServiceImpl implements CustomerService {
                 .role(savedCustomer.getRole().getName())
                 .dob(LocalDate.now())
                 .build();
-
         CommonResponse commonResponse = userService.registerUser(userDto);
+        UserEntity userEntity=(UserEntity) commonResponse.getResult();
 
-        UserEntity userEntity = (UserEntity)commonResponse.getResult();
-
-        Runnable emailTask = () -> {
-            //Send email with credentials
-            log.info("Sending email with credentials");
-            try {
-
-//                String link= BASE_URL+"/api/customers/activate?token=" + userEntity.getActivationToken();
-//                emailService.sendEmail(userEntity.getEmail(), SystemConstants.NEW_USER_EMAIL_SUBJECT,
-//                        Utility.generateNewUserEmailMessage(userEntity.getEmail(), password,link));
-            } catch (Exception ex) {
-                log.info("Oops! Couldnt send email. An error occurred");
-                log.info(ex.getMessage());
-            }
-        };
-        executor.execute(emailTask);
-
-        return CompletableFuture.completedFuture(userEntity);
+       return CompletableFuture.completedFuture(userEntity);
 
     }
 

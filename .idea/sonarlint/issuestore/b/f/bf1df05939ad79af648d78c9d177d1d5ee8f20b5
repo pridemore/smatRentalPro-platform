@@ -1,17 +1,16 @@
 
+r
+java:S3740l"/Provide the parametrized type for this generic.(ÀòÄå8ñ„ªíú1J$ca9fefc8-9317-491a-a858-e5b677f79706
+±
+java:S1488m"iImmediately return this expression instead of assigning it to the temporary variable "savedAdminProfile".(–úş ÿÿÿÿÿ8Š‰Œîú1J$3a2ec1b1-06ac-4b17-8ddd-d95de0ecb62a
 o
-java:S1602E",Remove useless curly braces around statement(€²ş€8ó¡“àú1J$764635d4-2e68-4124-ba7f-884009f1a9e7
-m	java:S106F"+Replace this use of System.out by a logger.(±áú©8ó¡“àú1J$f2a10c99-17c8-4f8d-91df-87b87adb9f80
+java:S1602B",Remove useless curly braces around statement(€²ş€8ø„ªíú1J$ee13d16a-3028-47b0-bd19-a4f6e2530331
+m	java:S106C"+Replace this use of System.out by a logger.(±áú©8ø„ªíú1J$4cd090e7-a05e-426e-8068-19f12228265d
+’
+java:S1172I"JRemove these unused method parameters "roleRepository", "passwordEncoder".(ùı–ùÿÿÿÿ8´®«íú1J$12a8ff2e-6a5c-4a1d-b83d-40253183dae2
 o
-java:S1602S",Remove useless curly braces around statement(™ñ½Ş8ô¡“àú1J$f6eb79a2-50b8-441b-9822-2784a5d484c2
+java:S1602O",Remove useless curly braces around statement(™ñ½Ş8ù„ªíú1J$109bb5c8-b300-4d2b-90d5-0e221bad7f7a
 p
-java:S2201Z"-The return value of "orElseGet" must be used.(ˆÂŠ­8ô¡“àú1J$2f4d4f0a-8431-4dec-8721-e53cc1559c45
-€
-java:S1854~"8Remove this useless assignment to local variable "link".(—£õÁøÿÿÿÿ8ô†Éäú1J$c4728c44-54dc-4e66-be8a-0f9a171a5215
-v
-java:S1172a"3Remove this unused method parameter "emailService".(«·ôÂ8õ†Éäú1J$fb155e4c-a98e-45aa-af41-8672a18cfebf
-~
-java:S6437x"6Revoke and change this password, as it is compromised.(ÈÑê×ıÿÿÿÿ8ö¡“àú1J$775e9adf-0100-47e6-b19a-174c00c0bf36
-q
-java:S1481~")Remove this unused "link" local variable.(—£õÁøÿÿÿÿ8ú†Éäú1J$c4e63f06-96a7-4b79-a9c0-0748ef4ff182
-	java:S125„"<This block of commented-out lines of code should be removed.(ìö—†8û†Éäú1J$ad2aea83-895b-4706-a21c-56f6364cc484
+java:S2201V"-The return value of "orElseGet" must be used.(ïÍÁã8¶®«íú1J$bddd4c50-b040-4e87-bc1f-6a27a6a776d9
+{
+java:S1172["3Remove this unused method parameter "emailService".(ÿÀ¦˜ûÿÿÿÿ8–‰Œîú1J$7e292cb8-e935-4b9c-8762-04ba364e56e9
