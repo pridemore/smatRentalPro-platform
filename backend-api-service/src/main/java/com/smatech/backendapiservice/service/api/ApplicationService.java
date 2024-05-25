@@ -7,5 +7,5 @@ import com.smatech.backendapiservice.domain.dto.ApplicationDto;
 public interface ApplicationService {
     CommonResponse createApplication(ApplicationDto applicationDto);
 
-    CommonResponse findAllApplications(ApplicationStatus status);
+    CommonResponse getAllApplications();
 }

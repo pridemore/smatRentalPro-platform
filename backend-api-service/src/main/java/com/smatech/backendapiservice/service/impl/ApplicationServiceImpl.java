@@ -69,7 +69,8 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public CommonResponse findAllApplications(ApplicationStatus status) {
-        return null;
+    public CommonResponse getAllApplications() {
+        return new CommonResponse().buildSuccessResponse(SUCCESS_MESSAGE,applicationRepository.findAll());
     }
+
 }

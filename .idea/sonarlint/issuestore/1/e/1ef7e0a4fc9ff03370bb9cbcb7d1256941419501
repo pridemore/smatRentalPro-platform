@@ -1,5 +1,5 @@
 
-p
-java:S54112"(Use a primitive boolean expression here.(¸Ç–Þüÿÿÿÿ8¢ž´Îú1J$3a078fdb-be2f-484d-beb1-fde6043caa5e
-“
-java:S3655:"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(¨ƒœÆ8¨ž´Îú1J$cca65e1f-2771-4c17-866e-a399a4e45c52
+r
+java:S3740"/Provide the parametrized type for this generic.(—½ÈÏ8•¾„ìú1J$5d26073f-372d-46a9-b4eb-b846ae83aacb
+r
+java:S3740"/Provide the parametrized type for this generic.(¢” ¢8•¾„ìú1J$d54f16df-2001-4181-b7ac-f7fda965eb21

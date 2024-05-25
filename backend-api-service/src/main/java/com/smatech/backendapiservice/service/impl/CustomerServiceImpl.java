@@ -1,28 +1,26 @@
 package com.smatech.backendapiservice.service.impl;
 
-import com.smatech.backendapiservice.common.SystemConstants;
-import com.smatech.backendapiservice.common.Utility;
 import com.smatech.backendapiservice.common.enums.Status;
 import com.smatech.backendapiservice.common.response.CommonResponse;
 import com.smatech.backendapiservice.domain.Customer;
 import com.smatech.backendapiservice.domain.Role;
 import com.smatech.backendapiservice.domain.UserEntity;
 import com.smatech.backendapiservice.domain.dto.CustomerDto;
+import com.smatech.backendapiservice.domain.dto.UserDto;
 import com.smatech.backendapiservice.persistance.CustomerRepository;
 import com.smatech.backendapiservice.persistance.RoleRepository;
 import com.smatech.backendapiservice.persistance.UserRepository;
 import com.smatech.backendapiservice.service.api.CustomerService;
 import com.smatech.backendapiservice.service.api.EmailService;
+import com.smatech.backendapiservice.service.api.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
@@ -33,25 +31,18 @@ import static com.smatech.backendapiservice.common.SystemConstants.*;
 public class CustomerServiceImpl implements CustomerService {
     private CustomerRepository customerRepository;
 
-    private PasswordEncoder passwordEncoder;
-
-    private EmailService emailService;
-
-    private UserRepository userRepository;
+    private UserService userService;
 
     private RoleRepository roleRepository;
 
     private final Executor executor;
 
     public CustomerServiceImpl(CustomerRepository customerRepository,
-                               PasswordEncoder passwordEncoder,
-                               EmailService emailService,
-                               UserRepository userRepository,
-                               RoleRepository roleRepository, Executor executor) {
+                               UserService userService,
+                               RoleRepository roleRepository,
+                               Executor executor) {
         this.customerRepository = customerRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.emailService = emailService;
-        this.userRepository = userRepository;
+        this.userService = userService;
         this.roleRepository = roleRepository;
         this.executor = executor;
     }
@@ -94,24 +85,22 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Async
     CompletableFuture<UserEntity> generateUserEntity(Customer savedCustomer, String password) {
-        UserEntity userEntity = UserEntity.builder()
+        UserDto userDto = UserDto.builder()
                 .name(savedCustomer.getName())
                 .surname(savedCustomer.getSurname())
                 .username(savedCustomer.getUsername())
-                .gender(savedCustomer.getGender())
+                .gender(savedCustomer.getGender().name())
                 .address(savedCustomer.getAddress())
                 .nationalId(savedCustomer.getNationalId())
                 .phoneNumber(savedCustomer.getPhoneNumber())
                 .email(savedCustomer.getEmail())
-                .password(passwordEncoder.encode(password))
-                .activationToken(UUID.randomUUID().toString())
+                .password(password)
                 .dob(LocalDate.now())
-                .dateCreated(OffsetDateTime.now())
-                .lastUpdated(OffsetDateTime.now())
-                .status(Status.ACTIVE)
                 .build();
 
-        userRepository.save(userEntity);
+        CommonResponse commonResponse = userService.registerUser(userDto);
+
+        UserEntity userEntity = (UserEntity)commonResponse.getResult();
 
         Runnable emailTask = () -> {
             //Send email with credentials

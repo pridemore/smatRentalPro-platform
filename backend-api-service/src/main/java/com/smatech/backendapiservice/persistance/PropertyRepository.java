@@ -17,4 +17,7 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
             "left join CUSTOMERS on CUSTOMERS.CUSTOMER_ID =APPLICATIONS.CUSTOMER_ID \n" +
             "where CUSTOMERS.CUSTOMER_ID =:customerId",nativeQuery = true)
     List<Property> findAllCustomerAppliedProperties(long customerId);
+
+    @Query(value = "SELECT count(*) as TotalRegisterdProperties FROM PROPERTIES ",nativeQuery = true)
+    int totalRegisteredProperties();
 }
