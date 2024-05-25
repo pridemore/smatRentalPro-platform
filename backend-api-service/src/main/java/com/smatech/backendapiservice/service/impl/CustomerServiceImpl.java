@@ -95,6 +95,7 @@ public class CustomerServiceImpl implements CustomerService {
                 .phoneNumber(savedCustomer.getPhoneNumber())
                 .email(savedCustomer.getEmail())
                 .password(password)
+                .role(savedCustomer.getRole().getName())
                 .dob(LocalDate.now())
                 .build();
 
