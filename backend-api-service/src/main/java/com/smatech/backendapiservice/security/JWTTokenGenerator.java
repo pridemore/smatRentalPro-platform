@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Component
+@Slf4j
 public class JWTTokenGenerator {
     private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     public String generateToken(Authentication authentication) {
@@ -32,8 +34,8 @@ public class JWTTokenGenerator {
                 .signWith(SignatureAlgorithm.HS512,key)
                 .compact();
 
-        System.out.println("New token :");
-        System.out.println(token);
+        log.info("New token : " +token);
+        log.info("Token expires on : "+expireDate);
 
         return token;
     }
