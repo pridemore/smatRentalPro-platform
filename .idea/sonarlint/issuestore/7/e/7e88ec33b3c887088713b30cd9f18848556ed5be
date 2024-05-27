@@ -1,0 +1,11 @@
+
+œ
+java:S1128"TRemove this unused import 'com.smatech.backendapiservice.common.enums.PropertyType'.(ø‡Ï†şÿÿÿÿ8ÑÚñâú1J$e0602b14-9c7c-4227-b12f-29c8e330f1bb
+•
+java:S1128"MRemove this unused import 'com.smatech.backendapiservice.domain.Application'.(Ê² ²şÿÿÿÿ8”Úòâú1J$dfa67af7-0407-4cc9-9de7-499b3f765d87
+|
+java:S1128"9Remove this unused import 'jakarta.persistence.EnumType'.(…÷Íà8ĞÂñâú1J$49bdbc97-aaf6-490d-a328-99bc99a434cc
+ƒ
+java:S1128";Remove this unused import 'jakarta.persistence.Enumerated'.(àèòùÿÿÿÿ8ÑÂñâú1J$a14b61de-7aad-42ac-b2c2-be82beaeb4e4
+
+java:S1128"9Remove this unused import 'jakarta.persistence.OneToOne'.(Ç­É™üÿÿÿÿ8”Úòâú1J$525f2a01-104d-4260-972d-ecc1e44029a0

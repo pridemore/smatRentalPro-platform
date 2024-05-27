@@ -1,0 +1,15 @@
+
+w
+java:S3740D"/Provide the parametrized type for this generic.(ÿÌ‚×ûÿÿÿÿ8Óƒ’îú1J$e1a1b47e-cd38-4fc1-9829-9c11d84a546f
+r
+java:S3740^"/Provide the parametrized type for this generic.(«Õş—8Óƒ’îú1J$ec6158a0-6aa3-4fda-87c9-c695c1390b54
+w
+java:S3740i"/Provide the parametrized type for this generic.(ßØ ¡ûÿÿÿÿ8Óƒ’îú1J$4705328a-25a1-4bf7-bf44-8d29e45b5469
+˜
+java:S3655X"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(ŠßÆşÿÿÿÿ8Şƒ’îú1J$cf8081b0-f2eb-4469-bd9c-712195ef9eef
+…
+java:S6813)"BRemove this field injection and use constructor injection instead.(êæÄŞ8ßƒ’îú1J$9d7320e2-8105-4a35-91b4-cf3c65d1bcc5
+
+java:S6809\"MCall async methods via an injected dependency instead of directly via 'this'.(ÓâÙä8äƒ’îú1J$fc3df58d-7226-47bf-b9fd-e117e3be088a
+
+java:S2230m"<Make this method "public" or remove the "@Async" annotation.(ËÃí˜8çƒ’îú1J$cf32e771-195f-4ff9-9dba-bb7b06821093
