@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ed6e1d4f-ad3d-4564-a25a-611816972dfb",
+		"_postman_id": "8abe9c64-e267-4375-aa9d-ef2426a915b3",
 		"name": "SmatechRentalPro",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7838312"
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\":\"Pridemore\",\r\n    \"password\":\"test\"\r\n}",
+					"raw": "{\r\n    \"username\":\"Aws\",\r\n    \"password\":\"test\",\r\n    \"name\":\"Tawaanda\",\r\n    \"surname\":\"Hanyire\",\r\n    \"role\":\"USER\",\r\n    \"email\":\"pridemore.aws@gmail.com\",\r\n    \"nationalId\":\"09-0353656C09\",\r\n    \"gender\":\"MALE\",\r\n    \"dob\":\"1995-07-09\",\r\n    \"address\":\"6542 Highfield, Harare\",\r\n    \"phoneNumber\":\"+264777765172\",\r\n   \"profileImage\":\"userProfile-234.png\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,6 +61,182 @@
 						"api",
 						"auth",
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer signup",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Belinda\",\r\n    \"surname\":\"Viriri\",\r\n    \"username\":\"belinda\",\r\n    \"password\":\"Belinda@123\",\r\n    \"nationalId\":\"07-3876849B07\",\r\n     \"gender\":\"FEMALE\",\r\n    \"dob\":\"1996-05-25\",\r\n    \"email\":\"pridemoreviriri@gmail.com\",\r\n    \"address\":\"141198 Damofalls\",\r\n    \"phoneNumber\":\"+263779046517\",\r\n     \"role\":\"CUSTOMER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/customers/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"customers",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Property",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjYwNTc2NywiZXhwIjoxNzE2NjkyMTY3fQ.xxt1LxG-JcTLpbPPT098smBX0rNMDgopIK-HoOSLjrCbUZlsHLbwO5Dl7F4eEKqX9JOxIIbOv6Dso8l6qves-g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"propertyType\":\"HOUSE\",\r\n     \"address\":\"7229 Zimre Park , Harare\",\r\n    \"size\":\"500 squre meters\",\r\n    \"description\":\"4 Bedroomed House, Walled and with Ceiling\",\r\n    \"rentalAmount\":400.00,\r\n   \"propertyImage\":\"House-2344\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/properties/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"properties",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Application",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjYwNTc2NywiZXhwIjoxNzE2NjkyMTY3fQ.xxt1LxG-JcTLpbPPT098smBX0rNMDgopIK-HoOSLjrCbUZlsHLbwO5Dl7F4eEKqX9JOxIIbOv6Dso8l6qves-g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startDate\":\"2024-06-01\",\r\n    \"endDate\":\"2024-09-31\",\r\n    \"depositPrice\":400.00,\r\n    \"customerId\":1,\r\n    \"propertyId\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/applications/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"applications",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CustomerAppliedProperties",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjYwNTc2NywiZXhwIjoxNzE2NjkyMTY3fQ.xxt1LxG-JcTLpbPPT098smBX0rNMDgopIK-HoOSLjrCbUZlsHLbwO5Dl7F4eEKqX9JOxIIbOv6Dso8l6qves-g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/properties/customer-applied/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"properties",
+						"customer-applied",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All applications",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjYwNTc2NywiZXhwIjoxNzE2NjkyMTY3fQ.xxt1LxG-JcTLpbPPT098smBX0rNMDgopIK-HoOSLjrCbUZlsHLbwO5Dl7F4eEKqX9JOxIIbOv6Dso8l6qves-g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/applications/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"applications",
+						"all"
 					]
 				}
 			},
