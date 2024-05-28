@@ -2,6 +2,7 @@ package com.smatech.backendapiservice.service.impl;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.smatech.backendapiservice.common.enums.ApplicationStatus;
+import com.smatech.backendapiservice.common.enums.PropertyStatus;
 import com.smatech.backendapiservice.common.enums.Status;
 import com.smatech.backendapiservice.common.response.CommonResponse;
 import com.smatech.backendapiservice.domain.Application;
@@ -69,6 +70,11 @@ public class ApplicationServiceImpl implements ApplicationService {
                 .dateCreated(OffsetDateTime.now())
                 .lastUpdated(OffsetDateTime.now())
                 .build();
+
+
+        property.get().setHasApplication(true);
+        property.get().setPropertyStatus(PropertyStatus.OCCUPIED);
+        propertyRepository.save(property.get());
 
         return new CommonResponse().buildSuccessResponse(SUCCESS_MESSAGE, applicationRepository.save(application));
 

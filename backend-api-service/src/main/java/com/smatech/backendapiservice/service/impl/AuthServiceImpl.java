@@ -54,10 +54,13 @@ public class AuthServiceImpl implements AuthService {
             response.setCustomerId(userCustomer.getCustomerId());
             response.setUserId(userCustomer.getUserAccount().getUserId());
             response.setUsername(userCustomer.getUsername());
+            response.setRole("CUSTOMER");
+
         }else{
             UserEntity byUsername = userService.findByUsername(principal.getUsername()).get();
             response.setUserId(byUsername.getUserId());
             response.setUsername(byUsername.getUsername());
+            response.setRole(byUsername.getRoles().get(0).getName());
         }
 
         return new CommonResponse().buildSuccessResponse(SUCCESS_MESSAGE, response);
