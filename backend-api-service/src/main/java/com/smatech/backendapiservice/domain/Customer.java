@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Set;
@@ -20,7 +21,7 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer {
+public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long customerId;
@@ -47,14 +48,12 @@ public class Customer {
 
 
     @OneToOne(targetEntity = UserEntity.class, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_user_Id", referencedColumnName = "userId")
     UserEntity userAccount;
 
     @ManyToOne(targetEntity = Role.class, fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name="customer_role_id", referencedColumnName = "roleId")
     Role role;
-
-    @OneToMany(mappedBy="customer")
-    private Set<Application> applicationSet;
 
     @Enumerated(EnumType.STRING)
     private Status status;

@@ -66,4 +66,5 @@ public class UserEntity {
     @UpdateTimestamp
     private OffsetDateTime lastUpdated;
 
+
 }

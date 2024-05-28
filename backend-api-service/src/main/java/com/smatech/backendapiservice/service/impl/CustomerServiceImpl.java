@@ -80,6 +80,11 @@ public class CustomerServiceImpl implements CustomerService {
         return new CommonResponse().buildSuccessResponse(SUCCESS_MESSAGE, savedCustomer);
     }
 
+    @Override
+    public Customer getCustomerByUsername(String username) {
+        return customerRepository.findByUsername(username);
+    }
+
     @Async
     void linkCustomerProfileWithUserEntity(Customer savedCustomer, UserEntity userEntity) {
         savedCustomer.setUserAccount(userEntity);

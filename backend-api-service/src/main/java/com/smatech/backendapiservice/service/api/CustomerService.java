@@ -1,8 +1,12 @@
 package com.smatech.backendapiservice.service.api;
 
 import com.smatech.backendapiservice.common.response.CommonResponse;
+import com.smatech.backendapiservice.domain.Customer;
 import com.smatech.backendapiservice.domain.dto.CustomerDto;
 
 public interface CustomerService {
     CommonResponse createCustomer(CustomerDto customerDto);
+
+    Customer getCustomerByUsername(String username);
+
 }

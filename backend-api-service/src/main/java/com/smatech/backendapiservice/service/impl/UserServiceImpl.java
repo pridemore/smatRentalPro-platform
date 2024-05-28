@@ -7,21 +7,14 @@ import com.smatech.backendapiservice.common.enums.Status;
 import com.smatech.backendapiservice.common.response.CommonResponse;
 import com.smatech.backendapiservice.domain.Role;
 import com.smatech.backendapiservice.domain.UserEntity;
-import com.smatech.backendapiservice.domain.dto.LoginDto;
-import com.smatech.backendapiservice.domain.dto.LoginResponseDto;
 import com.smatech.backendapiservice.domain.dto.UserDto;
 import com.smatech.backendapiservice.persistance.RoleRepository;
 import com.smatech.backendapiservice.persistance.UserRepository;
-import com.smatech.backendapiservice.security.JWTTokenGenerator;
 import com.smatech.backendapiservice.service.api.EmailService;
 import com.smatech.backendapiservice.service.api.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +26,6 @@ import java.util.UUID;
 import java.util.concurrent.Executor;
 
 import static com.smatech.backendapiservice.common.SystemConstants.*;
-import static com.smatech.backendapiservice.common.Utility.generateNewUserEmailMessage;
 
 @Slf4j
 @Service
@@ -42,16 +34,13 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
-    private AuthenticationManager authenticationManager;
-    private JWTTokenGenerator jwtGenerator;
+
     private final Executor executor;
     private EmailService emailService;
 
-    public UserServiceImpl(RoleRepository roleRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, JWTTokenGenerator jwtGenerator, Executor executor, EmailService emailService) {
+    public UserServiceImpl(RoleRepository roleRepository, PasswordEncoder passwordEncoder, Executor executor, EmailService emailService) {
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
-        this.authenticationManager = authenticationManager;
-        this.jwtGenerator = jwtGenerator;
         this.executor = executor;
         this.emailService = emailService;
     }
@@ -89,33 +78,25 @@ public class UserServiceImpl implements UserService {
         user.setRoles(Collections.singletonList(roles));
 
         UserEntity savedUserEntity = userRepository.save(user);
-        sentEmailAfterUserCreation(savedUserEntity,registerDto.getPassword());
+        sentEmailAfterUserCreation(savedUserEntity, registerDto.getPassword());
 
         return new CommonResponse().buildSuccessResponse(SUCCESS_MESSAGE, savedUserEntity);
     }
 
-    @Override
-    public CommonResponse login(LoginDto loginDto) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginDto.getUsername(),
-                        loginDto.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = jwtGenerator.generateToken(authentication);
-        return new CommonResponse().buildSuccessResponse(SUCCESS_MESSAGE, new LoginResponseDto(token));
-    }
+
+
 
     @Async
-    void sentEmailAfterUserCreation(UserEntity userEntity,String password){
+    void sentEmailAfterUserCreation(UserEntity userEntity, String password) {
 
         Runnable emailTask = () -> {
             //Send email with credentials
             log.info("Sending email with credentials");
             try {
 
-                String link= BASE_URL+"/api/customers/activate?token=" + userEntity.getActivationToken();
+                String link = BASE_URL + "/api/customers/activate?token=" + userEntity.getActivationToken();
                 emailService.sendEmail(userEntity.getEmail(), SystemConstants.NEW_USER_EMAIL_SUBJECT,
-                        Utility.generateNewUserEmailMessage(userEntity.getUsername(), password,link));
+                        Utility.generateNewUserEmailMessage(userEntity.getUsername(), password, link));
             } catch (Exception ex) {
                 log.info("Oops! Couldnt send email. An error occurred");
                 log.info(ex.getMessage());

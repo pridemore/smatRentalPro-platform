@@ -4,6 +4,9 @@ import lombok.Data;
 
 @Data
 public class LoginResponseDto {
+    private long userId;
+    private long customerId;
+    private String username;
     private String accessToken;
     private String tokenType = "Bearer ";
 
