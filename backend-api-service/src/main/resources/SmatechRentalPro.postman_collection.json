@@ -21,7 +21,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8090/api/auth/register",
+					"raw": "http://localhost:8090/api/users/register",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -29,7 +29,7 @@
 					"port": "8090",
 					"path": [
 						"api",
-						"auth",
+						"users",
 						"register"
 					]
 				}
@@ -39,6 +39,16 @@
 		{
 			"name": "Login",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjkyMTMxNiwiZXhwIjoxNzE3MDA3NzE2fQ.q8YIgYBoGWRC2SF-YBFhX_Fdqn2G0p9wv0qpUF-eTJTfu3O_XYIT1F2VDU2GVHYLrna1oJehPJesd-jO4DMNCA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -76,7 +86,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Belinda\",\r\n    \"surname\":\"Viriri\",\r\n    \"username\":\"belinda\",\r\n    \"password\":\"Belinda@123\",\r\n    \"nationalId\":\"07-3876849B07\",\r\n     \"gender\":\"FEMALE\",\r\n    \"dob\":\"1996-05-25\",\r\n    \"email\":\"pridemoreviriri@gmail.com\",\r\n    \"address\":\"141198 Damofalls\",\r\n    \"phoneNumber\":\"+263779046517\",\r\n     \"role\":\"CUSTOMER\"\r\n}",
+					"raw": "{\r\n    \"name\":\"Belinda\",\r\n    \"surname\":\"Viriri\",\r\n    \"username\":\"belinda\",\r\n    \"password\":\"Belinda@123\",\r\n    \"nationalId\":\"07-3876849B07\",\r\n     \"gender\":\"FEMALE\",\r\n    \"dob\":\"1996-05-25\",\r\n    \"email\":\"bels@gmail.com\",\r\n    \"address\":\"141198 Damofalls\",\r\n    \"phoneNumber\":\"+263779046517\",\r\n    \"role\":\"CUSTOMER\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -107,7 +117,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjYwNTc2NywiZXhwIjoxNzE2NjkyMTY3fQ.xxt1LxG-JcTLpbPPT098smBX0rNMDgopIK-HoOSLjrCbUZlsHLbwO5Dl7F4eEKqX9JOxIIbOv6Dso8l6qves-g",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjkyMTMxNiwiZXhwIjoxNzE3MDA3NzE2fQ.q8YIgYBoGWRC2SF-YBFhX_Fdqn2G0p9wv0qpUF-eTJTfu3O_XYIT1F2VDU2GVHYLrna1oJehPJesd-jO4DMNCA",
 							"type": "string"
 						}
 					]
@@ -147,7 +157,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjYwNTc2NywiZXhwIjoxNzE2NjkyMTY3fQ.xxt1LxG-JcTLpbPPT098smBX0rNMDgopIK-HoOSLjrCbUZlsHLbwO5Dl7F4eEKqX9JOxIIbOv6Dso8l6qves-g",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjkyMTMxNiwiZXhwIjoxNzE3MDA3NzE2fQ.q8YIgYBoGWRC2SF-YBFhX_Fdqn2G0p9wv0qpUF-eTJTfu3O_XYIT1F2VDU2GVHYLrna1oJehPJesd-jO4DMNCA",
 							"type": "string"
 						}
 					]
@@ -156,7 +166,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"startDate\":\"2024-06-01\",\r\n    \"endDate\":\"2024-09-31\",\r\n    \"depositPrice\":400.00,\r\n    \"customerId\":1,\r\n    \"propertyId\":3\r\n}",
+					"raw": "{\r\n    \"startDate\":\"2024-06-01\",\r\n    \"endDate\":\"2024-09-31\",\r\n    \"depositPrice\":400.00,\r\n    \"customerId\":1,\r\n    \"propertyId\":1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -219,7 +229,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjYwNTc2NywiZXhwIjoxNzE2NjkyMTY3fQ.xxt1LxG-JcTLpbPPT098smBX0rNMDgopIK-HoOSLjrCbUZlsHLbwO5Dl7F4eEKqX9JOxIIbOv6Dso8l6qves-g",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjkwMjU2MiwiZXhwIjoxNzE2OTg4OTYyfQ.oQ2ijfUsJvy4ajLB-r0AoLbBYPLOiNcAdRE_0IwcLVaw085MRzmIjlVphc1altS4UnumOJo8vgWc4VAJ7pzJuw",
 							"type": "string"
 						}
 					]
@@ -237,6 +247,89 @@
 						"api",
 						"applications",
 						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all properties",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjg4MDgwNiwiZXhwIjoxNzE2OTY3MjA2fQ.Z3qQyOyU_-1pFe2bhEEJbweYetFHvTN41tTFA9LFQXQTbMtZzU4jtoXsWm4N1un2B5FAgJOU435QCo4sIa3vfw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/properties/allAvailable",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"properties",
+						"allAvailable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Available properties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/properties/allAvailable",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"properties",
+						"allAvailable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "statistics report",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNjkyMTQ0MCwiZXhwIjoxNzE3MDA3ODQwfQ.I40-_MEOshFxzr14mCifBoU5_MgA5OXQ8gqWZWjYmRs_1WS_XvqWWCiZ8eJOoHHZqQCDyOJFQzn7XvqQ-Ps9zw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/reports/statisticalData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"reports",
+						"statisticalData"
 					]
 				}
 			},

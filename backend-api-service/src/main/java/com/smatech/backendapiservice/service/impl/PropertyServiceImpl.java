@@ -60,12 +60,12 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public CommonResponse getAllListedProperties() {
-        return new CommonResponse().buildErrorResponse(SUCCESS_MESSAGE,propertyRepository.findAll());
+        return new CommonResponse().buildSuccessResponse(SUCCESS_MESSAGE,propertyRepository.findAll());
     }
 
     @Override
     public CommonResponse getAllAvailableListedProperties() {
-        return new CommonResponse().buildErrorResponse(SUCCESS_MESSAGE,
+        return new CommonResponse().buildSuccessResponse(SUCCESS_MESSAGE,
                 propertyRepository.findAllByPropertyStatus(PropertyStatus.AVAILABLE)) ;
     }
 }
