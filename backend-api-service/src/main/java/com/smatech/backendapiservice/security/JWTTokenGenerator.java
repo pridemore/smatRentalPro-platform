@@ -51,7 +51,7 @@ public class JWTTokenGenerator {
     }
 
     public boolean validateToken(String token) {
-        log.info("Token to be validated : {}",token);
+        //log.info("Token to be validated : {}",token);
         try {
             Jwts.parser()
                     .setSigningKey(key)

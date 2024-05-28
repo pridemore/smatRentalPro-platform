@@ -10,4 +10,8 @@ public interface PropertyService {
     CommonResponse findAllProperties(PropertyStatus status);
 
     CommonResponse getAllCustomerAppliedProperties(long customerId);
+
+    CommonResponse getAllListedProperties();
+
+    CommonResponse getAllAvailableListedProperties();
 }

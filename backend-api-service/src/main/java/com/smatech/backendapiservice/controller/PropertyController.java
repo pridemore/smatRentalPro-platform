@@ -26,4 +26,14 @@ public class PropertyController {
     public CommonResponse customerAppliedProperties(@PathVariable("customerId")long customerId){
         return propertyService.getAllCustomerAppliedProperties(customerId);
     }
+
+    @GetMapping("/all")
+    public CommonResponse allListedProperties(){
+        return propertyService.getAllListedProperties();
+    }
+
+    @GetMapping("/allAvailable")
+    public CommonResponse allAvailableListedProperties(){
+        return propertyService.getAllAvailableListedProperties();
+    }
 }

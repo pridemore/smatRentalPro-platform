@@ -1,5 +1,6 @@
 package com.smatech.backendapiservice.persistance;
 
+import com.smatech.backendapiservice.common.enums.PropertyStatus;
 import com.smatech.backendapiservice.domain.Property;
 import com.smatech.backendapiservice.domain.dto.PropertyDto;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,4 +21,6 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
 
     @Query(value = "SELECT count(*) as TotalRegisterdProperties FROM PROPERTIES ",nativeQuery = true)
     int totalRegisteredProperties();
+
+    List<Property> findAllByPropertyStatus(PropertyStatus propertyStatus);
 }

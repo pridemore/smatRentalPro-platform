@@ -1,11 +1,19 @@
 
 w
-java:S3740*"/Provide the parametrized type for this generic.(ÛÁü®ùÿÿÿÿ8ÏÖÒéú1J$e2c45e80-ab1f-485d-88a3-873458607a19
+java:S37400"/Provide the parametrized type for this generic.(ÛÁü®ùÿÿÿÿ8½İèúû1J$7f43d332-2af6-44ce-b279-b0b101534ea9
 r
-java:S3740/"/Provide the parametrized type for this generic.(âò8ÏÖÒéú1J$7e957684-8dde-4ed1-b684-8284b08c6ba4
+java:S37405"/Provide the parametrized type for this generic.(âò8½İèúû1J$32c790ae-835d-4da7-8a2e-82caab9a2201
 r
-java:S37403"/Provide the parametrized type for this generic.(ıÈê8ĞÖÒéú1J$f8ec05cf-994e-434a-8e42-f417080f9b8a
+java:S37409"/Provide the parametrized type for this generic.(ıÈê8½İèúû1J$1f405d16-df06-4833-9479-f4d73a2bfe59
 q
-java:S3740C"/Provide the parametrized type for this generic.(Î¸Â8ĞÖÒéú1J$9d2fae19-b050-4af8-9a5b-95179640bf50
-w
-java:S3740I"/Provide the parametrized type for this generic.(£Ê”íÿÿÿÿÿ8ĞÖÒéú1J$59ec7b2a-344e-4a0c-8901-a42c625552db
+java:S3740I"/Provide the parametrized type for this generic.(Î¸Â8½İèúû1J$add8a97e-2918-4c1c-85d5-b904ed69af09
+r
+java:S3740S"/Provide the parametrized type for this generic.(ë´õ“8½İèúû1J$f6c5a393-0553-40b6-9bc3-1a6fc03ccae1
+½
+java:S6204R"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ª™¨¹8İ…ç‚ü1J$61fe5f33-1159-48d2-93dd-96250b3536de
+
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonFormat'.(ıÙè‹øÿÿÿÿ8ß…ç‚ü1J$b560fe78-5437-4276-a270-26d20fea041d
+x
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ß…ç‚ü1J$a9d69596-a773-43de-a155-454c9a46d1cd
+s
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ß…ç‚ü1J$bb5e73bc-c821-4ac2-af40-17ae91827ee7

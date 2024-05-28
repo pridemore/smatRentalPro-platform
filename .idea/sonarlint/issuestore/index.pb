@@ -5449,3 +5449,7 @@ w
 G.idea/sonarlint/issuestore/0/5/05d4fbb664e71a7d025a4cc3a96770577e353625,9\3\93b5d1728f4f43cc07859782496709e4f417351d
 w
 G.idea/sonarlint/issuestore/0/5/0556720b193f6618e0f7686ae786b3eb39c15b5b,0\b\0b1dbd71f6740e4c7307601852cd40b5e33f9fbf
+–
+fbackend-api-service/src/main/java/com/smatech/backendapiservice/domain/dto/ApllicationResponseDto.java,c\9\c949853d3be666665e4c50dd1d359eae78ef8638
+–
+fbackend-api-service/src/main/java/com/smatech/backendapiservice/domain/dto/ApplicationResponseDto.java,f\3\f38dda6d7e045b632fad3fb3af75c372d575d40e

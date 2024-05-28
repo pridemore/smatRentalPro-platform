@@ -57,4 +57,15 @@ public class PropertyServiceImpl implements PropertyService {
         List<Property> allCustomerAppliedProperties = propertyRepository.findAllCustomerAppliedProperties(customerId);
         return new CommonResponse().buildSuccessResponse(SUCCESS_MESSAGE,allCustomerAppliedProperties);
     }
+
+    @Override
+    public CommonResponse getAllListedProperties() {
+        return new CommonResponse().buildErrorResponse(SUCCESS_MESSAGE,propertyRepository.findAll());
+    }
+
+    @Override
+    public CommonResponse getAllAvailableListedProperties() {
+        return new CommonResponse().buildErrorResponse(SUCCESS_MESSAGE,
+                propertyRepository.findAllByPropertyStatus(PropertyStatus.AVAILABLE)) ;
+    }
 }
