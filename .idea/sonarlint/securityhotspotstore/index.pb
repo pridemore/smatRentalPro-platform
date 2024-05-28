@@ -5453,3 +5453,13 @@ G.idea/sonarlint/issuestore/0/5/0556720b193f6618e0f7686ae786b3eb39c15b5b,0\b\0b
 fbackend-api-service/src/main/java/com/smatech/backendapiservice/domain/dto/ApllicationResponseDto.java,c\9\c949853d3be666665e4c50dd1d359eae78ef8638
 ñ
 fbackend-api-service/src/main/java/com/smatech/backendapiservice/domain/dto/ApplicationResponseDto.java,f\3\f38dda6d7e045b632fad3fb3af75c372d575d40e
+ê
+`backend-api-service/src/main/java/com/smatech/backendapiservice/controller/ReportController.java,0\e\0e5eee897470ee55f43e30dd8717bea6d4c40d09
+é
+^backend-api-service/src/main/java/com/smatech/backendapiservice/service/api/ReportService.java,d\1\d1550c04c84c0bc629d037653d345363354a524d
+ì
+cbackend-api-service/src/main/java/com/smatech/backendapiservice/service/impl/ReportServiceImpl.java,3\a\3a67eb79aef7a2e61988667c2d1b2645b7760f03
+ì
+cbackend-api-service/src/main/java/com/smatech/backendapiservice/domain/dto/ReportStatisticsDto.java,6\5\65c53cdbbb2e715ae544da18abed3f96c62398f1
+õ
+kbackend-api-service/src/main/java/com/smatech/backendapiservice/domain/dto/ReportStatisticsResponseDto.java,0\8\0810354a7628499f0cf66eb7d330438174aa2b8a
