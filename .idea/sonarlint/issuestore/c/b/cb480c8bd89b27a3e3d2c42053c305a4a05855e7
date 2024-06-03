@@ -1,19 +1,19 @@
 
 w
-java:S37401"/Provide the parametrized type for this generic.(ÛÁü®ùÿÿÿÿ8ÿ·ø‡ü1J$236b1af7-432d-4694-a5aa-d3ac185a16bf
+java:S37401"/Provide the parametrized type for this generic.(ÛÁü®ùÿÿÿÿ8ÿ·ø‡ü1J$127dad93-5d17-4605-be27-af752d67383d
 r
-java:S37406"/Provide the parametrized type for this generic.(âò8€¸ø‡ü1J$dcf31bc5-9378-4fc2-b18c-ea0079626835
+java:S37406"/Provide the parametrized type for this generic.(âò8€¸ø‡ü1J$42c2872f-1fa9-4c3d-be45-b3550cdae4a1
 r
-java:S3740:"/Provide the parametrized type for this generic.(ıÈê8€¸ø‡ü1J$1e74b431-1394-42c2-b1e0-b38988cb3075
+java:S3740:"/Provide the parametrized type for this generic.(ıÈê8€¸ø‡ü1J$5bd8cd31-6ea4-429a-86fb-d4e1ddbdeff8
 q
-java:S3740O"/Provide the parametrized type for this generic.(Î¸Â8€¸ø‡ü1J$f35a1c3e-ffbe-4550-bbbe-a857a46bca9c
+java:S3740O"/Provide the parametrized type for this generic.(Î¸Â8€¸ø‡ü1J$a9cde209-cf42-4857-b70a-6f32789cc849
 r
-java:S3740Y"/Provide the parametrized type for this generic.(ë´õ“8€¸ø‡ü1J$956ff4b6-6330-4eb7-8169-637591033954
+java:S3740Y"/Provide the parametrized type for this generic.(ë´õ“8€¸ø‡ü1J$9d9b1216-42ac-4153-9086-f76d978d85c7
 ½
-java:S6204X"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ª™¨¹8‹¸ø‡ü1J$e02e8631-89d0-4839-8fcf-5add7a6dcffe
+java:S6204X"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ª™¨¹8‹¸ø‡ü1J$a734bdbb-260c-456e-9182-17a91e95dbda
 
-java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonFormat'.(ıÙè‹øÿÿÿÿ8¸ø‡ü1J$f03b9fc8-304f-48fa-be65-b5bda5821250
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonFormat'.(ıÙè‹øÿÿÿÿ8¸ø‡ü1J$091c3c8c-5cce-4bc2-9868-92cc6ff94e9a
 x
-java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8¸ø‡ü1J$012ac45a-a73e-4023-8dc7-48807a71e166
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8¸ø‡ü1J$d488c3cc-9f45-4546-b4b5-01216b971271
 s
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¸ø‡ü1J$79b1b8b5-2fbf-401f-942b-3b5f5e3ad945
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¸ø‡ü1J$0aa37a62-9aef-4d07-8a7b-03e378261e57

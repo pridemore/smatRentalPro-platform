@@ -1,0 +1,54 @@
+version: "3.8"
+services:
+  smartrentalpro-backend:
+    #network_mode: "host"
+    image: smartrentalpro-backend:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - MYSQL_HOST=mysqldb
+      - MYSQL_PORT=3306
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    command: --spring.profiles.active=prod
+    container_name: smartrentalpro-backend
+    restart: always
+    volumes:
+      - type: bind
+        source: ../container-app-logs/smartrentalpro-backend
+        target: /opt/smatech/logs
+      - type: bind
+        source: ./target
+        target: /opt/smatech
+      - type: bind
+        source: ./media/smartrentalpro-backend
+        target: /opt/smatech/media
+    ports:
+      - "8090:8090"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "2MB"
+        max-file: "10"
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+    links:
+      - mysqldb
+  mysqldb:
+    image: "mysql:8.4.0"
+    container_name: mysqldb
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: smatrentalpro_db
+      MYSQL_ROOT_PASSWORD: root
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      retries: 10
+      interval: 3s
+      timeout: 30s
+
